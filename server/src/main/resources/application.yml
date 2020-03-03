@@ -30,4 +30,4 @@ logging:
     com:
       example:
         springbootmbg:
-          mapper: debug
+          mapper: trace

@@ -1,5 +1,8 @@
 package com.example.demo.entity.model;
 
+import lombok.Data;
+
+@Data
 public class BaseResult<T> {
     private String message;
     private boolean success;
@@ -24,27 +27,4 @@ public class BaseResult<T> {
         this.success = success;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public boolean isSuccess() {
-        return success;
-    }
-
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
 }

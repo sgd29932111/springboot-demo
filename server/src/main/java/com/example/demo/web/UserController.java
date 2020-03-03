@@ -5,13 +5,11 @@ import com.example.demo.entity.model.LoginResult;
 import com.example.demo.server.UserServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import static com.example.demo.util.ConstUtil.*;
 
-@Controller
+@RestController
 @RequestMapping(USER_INTERFACE)
 public class UserController {
 
@@ -22,8 +20,7 @@ public class UserController {
         this.userServer = userServer;
     }
 
-    @ResponseBody
-    @RequestMapping(REGISTER)
+    @GetMapping(REGISTER)
     public BaseResult<LoginResult> register(@RequestParam String loginName, @RequestParam String password,@RequestParam String userName){
         BaseResult<LoginResult> result = new BaseResult<>();
         userServer.register(loginName,userName,password,result);

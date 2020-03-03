@@ -22,9 +22,9 @@ public class LoginController {
 
     @ResponseBody
     @RequestMapping(USER_LOGIN)
-    public BaseResult<LoginResult> login(@RequestParam String userName,@RequestParam String password){
+    public BaseResult<LoginResult> login(@RequestParam String loginName,@RequestParam String password){
         BaseResult<LoginResult> result = new BaseResult<>();
-        loginServer.login(userName,password,result);
+        loginServer.login(loginName,password,result);
         return result;
     }
 }

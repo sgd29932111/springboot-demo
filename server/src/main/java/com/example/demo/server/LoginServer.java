@@ -4,5 +4,5 @@ import com.example.demo.entity.model.BaseResult;
 import com.example.demo.entity.model.LoginResult;
 
 public interface LoginServer {
-    void login(String userName, String password, BaseResult<LoginResult> result);
+    void login(String loginName, String password, BaseResult<LoginResult> result);
 }

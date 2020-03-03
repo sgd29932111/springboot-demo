@@ -1,0 +1,22 @@
+zuul:
+  sensitive-headers:
+  routes:
+    myProduct:
+      path: /myProduct/**
+      serviceId: product
+    product: /myProduct/**
+    sensitiveHeaders:
+  ignored-patterns:
+    - /**/product/listForOrder
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" #注意这里*要加引号，暴露全部，也可以只暴露相应endpoint
+  endpoint:
+    routes:
+      enabled: true # 默认为true，可以省略
+spring:      
+  redis:
+    host: 192.168.137.121
+    port: 6379      

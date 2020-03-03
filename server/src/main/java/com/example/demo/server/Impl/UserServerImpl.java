@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import static com.example.demo.util.ConstUtil.*;
 
 @Service
-public class UserServerImpl implements UserServer{
+public class UserServerImpl implements UserServer {
 
     private UsersMapper usersMapper;
 
@@ -24,20 +24,20 @@ public class UserServerImpl implements UserServer{
     public void register(String loginName, String userName, String password, BaseResult<LoginResult> result) {
         try {
             //先查询用户名是否已经注册过
-            Users users = usersMapper.selectByUserName();
-            if(users==null){
+            Users users = usersMapper.selectByLoginName(loginName);
+            if (users == null) {
                 users = new Users();
                 users.setLoginName(loginName);
                 users.setPsssword(password);
                 users.setUserName(userName);
                 usersMapper.insertSelective(users);
-                result.construct(REGISTER_SUCCESS,true,null);
-            }else{
-                result.construct(LOGIN_NAME_EXISTED,false,null);
+                result.construct(REGISTER_SUCCESS, true, null);
+            } else {
+                result.construct(LOGIN_NAME_EXISTED, false, null);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            result.construct(REGISTER_FAILED,false,null);
+            result.construct(REGISTER_FAILED, false, null);
         }
     }
 }
